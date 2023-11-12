@@ -98,24 +98,36 @@ const CartPage = () => {
         </div>
         <div className="container ">
           <div className="row ">
-            <div className="col-md-7  p-0 m-0">
+            <div className="col-md-6 p-3 m-1">
               {cart?.map((p) => (
-                <div className="row card flex-row" key={p._id}>
-                  <div className="col-md-4">
-                    <img
-                      src={`/api/v1/product/product-photo/${p._id}`}
-                      className="card-img-top"
-                      alt={p.name}
-                      width="100%"
-                      height={"130px"}
-                    />
+                <div
+                  className="row card p-2"
+                  key={p._id}
+                  style={{ height: "220px", minHeight: "220px" }}
+                >
+                  <div className="col-md-4 my-auto" style={{ height: "180px" }}>
+                    <div
+                      className="card-header"
+                      style={{ height: "180px", overflow: "hidden" }}
+                    >
+                      <img
+                        src={`/api/v1/product/product-photo/${p._id}`}
+                        className="card-img-top"
+                        alt={p.name}
+                        style={{
+                          objectFit: "scale-down",
+                          width: "100%",
+                          height: "100%",
+                        }}
+                      />
+                    </div>
                   </div>
-                  <div className="col-md-4">
+                  <div className="col-md-4 py-2 my-auto">
                     <p>{p.name}</p>
                     <p>{p.description.substring(0, 30)}</p>
                     <p>Price : {p.price}</p>
                   </div>
-                  <div className="col-md-4 cart-remove-btn">
+                  <div className="col-md-4 cart-remove-btn my-auto">
                     <button
                       className="btn btn-danger"
                       onClick={() => removeCartItem(p._id)}

@@ -121,7 +121,7 @@ const HomePage = () => {
       {/* banner image */}
       <div className="container-fluid row home-page bg-light">
         <div className="col-md-2 mx-3 filters p-2">
-          <h4 className="text-center">Filter By Category</h4>
+          <h4 className="text-center mt-5">Filter By Category</h4>
           <div className="d-flex flex-column">
             {categories?.map((c) => (
               <Checkbox
@@ -150,24 +150,32 @@ const HomePage = () => {
           </div>
           <div className="d-flex flex-column">
             <button
-              className="btn btn-danger"
+              className="btn btn-danger rounded-3"
               onClick={() => window.location.reload()}
             >
               RESET FILTERS
             </button>
           </div>
         </div>
-        <div className="col-md-9">
-          <h1 className="text-center text-dark pt-2">All Products</h1>
+        <div className="mx-5 col-md-9">
+          <h1 className="text-center text-dark pt-5 fs-1">All Products</h1>
           <div className="d-flex flex-wrap p-2 ">
             {products?.map((p) => (
-              <div className="card m-3 " key={p._id}>
-                <div className="card-header" style={{ height: "200px" }}>
+              <div className="card m-4 " key={p._id}>
+                <div
+                  className="card-header"
+                  style={{ height: "220px", overflow: "hidden" }}
+                >
                   <img
                     src={`/api/v1/product/product-photo/${p._id}`}
                     className=""
-                    width={"100%"}
-                    height={"100%"}
+                    style={{
+                      objectFit: "scale-down",
+                      width: "100%",
+                      height: "100%",
+                    }}
+                    // width={"100%"}
+                    // height={"100%"}
                     alt={p.name}
                   />
                 </div>
@@ -185,13 +193,13 @@ const HomePage = () => {
                     {p.description.substring(0, 50)}...
                   </p>
                 </div>
-                <div className="card-text card-name-price mt-2 mx-1">
+                <div className="card-text card-name-price mt-2 mx-1 pb-2">
                   <button
-                    className="btn btn-info"
+                    className="btn btn-info text-light"
                     style={{
-                      padding: "1px",
-                      margin: "1px",
-                      backgroundColor: "#79becc82",
+                      padding: "5px",
+                      margin: "5px",
+                      backgroundColor: "rgb(251 33 31 / 72%)",
                     }}
                     onClick={() => navigate(`/product/${p.slug}`)}
                   >
@@ -200,8 +208,8 @@ const HomePage = () => {
                   <button
                     className="btn btn-dark  ms-2"
                     style={{
-                      padding: "1px",
-                      margin: "1px",
+                      padding: "5px",
+                      margin: "5px",
                       backgroundColor: " #495159b0",
                     }}
                     onClick={() => {

@@ -39,15 +39,23 @@ const ProductDetails = () => {
   };
   return (
     <Layout>
-      <div className="row container product-details">
+      <div className="row mx-5 container product-details">
         <div className="col-md-6">
-          <img
-            src={`/api/v1/product/product-photo/${product._id}`}
-            className="card-img-top"
-            alt={product.name}
-            height="300"
-            width={"350px"}
-          />
+          <div
+            className="card-header"
+            style={{ height: "400px", overflow: "hidden" }}
+          >
+            <img
+              src={`/api/v1/product/product-photo/${product._id}`}
+              className="card-img-top"
+              alt={product.name}
+              style={{
+                objectFit: "scale-down",
+                width: "100%",
+                height: "100%",
+              }}
+            />
+          </div>
         </div>
         <div className="col-md-6 product-details-info">
           <h1 className="text-center">Product Details</h1>
@@ -66,7 +74,7 @@ const ProductDetails = () => {
         </div>
       </div>
       <hr />
-      <div className="row container similar-products">
+      <div className="row mx-5 container similar-products">
         <h4>Similar Products ➡️</h4>
         {relatedProducts.length < 1 && (
           <p className="text-center">No Similar Products found</p>
@@ -74,14 +82,24 @@ const ProductDetails = () => {
         <div className="d-flex flex-wrap">
           {relatedProducts?.map((p) => (
             <div className="card m-2" key={p._id}>
-              <img
-                src={`/api/v1/product/product-photo/${p._id}`}
-                className="card-img-top"
-                alt={p.name}
-              />
+              <div
+                className="card-header"
+                style={{ height: "220px", overflow: "hidden" }}
+              >
+                <img
+                  src={`/api/v1/product/product-photo/${p._id}`}
+                  className="card-img-top"
+                  style={{
+                    objectFit: "scale-down",
+                    width: "100%",
+                    height: "100%",
+                  }}
+                  alt={p.name}
+                />
+              </div>
               <div className="card-body">
                 <div className="card-name-price">
-                  <h5 className="card-title">{p.name}</h5>
+                  <h5 className="card-title">{p.name.substring(0, 30)}...</h5>
                   <h5 className="card-title card-price">
                     {p.price.toLocaleString("en-US", {
                       style: "currency",

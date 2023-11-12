@@ -21,6 +21,17 @@
   justify-content: space-between;
 }
 
+.card-name-price button {
+  border-radius: 0;
+  /* width: 100%; */
+  border-top-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+
+
 .home-page .card-price {
   color: green;
   font-weight: bold;

@@ -29,19 +29,31 @@ const CategoryProduct = () => {
       <div className="container mt-3 category">
         <h4 className="text-center">Category - {category?.name}</h4>
         <h6 className="text-center">{products?.length} result found </h6>
-        <div className="row">
-          <div className="col-md-9 offset-1">
-            <div className="d-flex flex-wrap">
+        <div className="row mx-5">
+          <div className="mx-5 offset-1 col-md-10 offset-1">
+            <div className="d-flex flex-wrap mt-3">
               {products?.map((p) => (
-                <div className="card m-2" key={p._id}>
-                  <img
-                    src={`/api/v1/product/product-photo/${p._id}`}
-                    className="card-img-top"
-                    alt={p.name}
-                  />
+                <div className="card mx-3 my-2" key={p._id}>
+                  <div
+                    className="card-header"
+                    style={{ height: "280px", overflow: "hidden" }}
+                  >
+                    <img
+                      src={`/api/v1/product/product-photo/${p._id}`}
+                      className="card-img-top"
+                      alt={p.name}
+                      style={{
+                        objectFit: "scale-down",
+                        width: "100%",
+                        height: "100%",
+                      }}
+                    />
+                  </div>
                   <div className="card-body">
                     <div className="card-name-price">
-                      <h5 className="card-title">{p.name}</h5>
+                      <h5 className="card-title">
+                        {p.name.substring(0, 30)}...
+                      </h5>
                       <h5 className="card-title card-price">
                         {p.price.toLocaleString("en-US", {
                           style: "currency",
