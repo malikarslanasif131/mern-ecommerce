@@ -7,6 +7,10 @@
   font-family: "Playfair Display", serif;
 }
 
+input[type='checkbox'] {
+  accent-color: red;
+}
+
 .home-page {
   display: flex;
   flex-wrap: wrap;
